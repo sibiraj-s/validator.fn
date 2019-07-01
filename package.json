@@ -1,0 +1,45 @@
+{
+  "name": "validator.fn",
+  "version": "1.0.0",
+  "description": "A simple function to aid form validations",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "sibiraj-s",
+  "private": true,
+  "repository": "https://github.com/sibiraj-s/validator.fn.git",
+  "keywords": [
+    "forms",
+    "validation",
+    "javascript"
+  ],
+  "scripts": {
+    "rollup": "rollup -c",
+    "terser": "terser dist/validator.fn.js -o dist/validator.fn.min.js --source-map  --comments \"//*!/\"",
+    "build": "npm run rollup && npm run terser",
+    "postbuild": "sh ./scripts/postbuild.sh",
+    "prebuild": "sh ./scripts/prebuild.sh",
+    "lint": "eslint . --ignore-path .gitignore",
+    "pretest": "npm run build",
+    "test": "jest",
+    "prerelease": "npm run build",
+    "prepublishOnly": "node ./scripts/prepublish.js",
+    "release": "sh ./scripts/release.sh"
+  },
+  "peerDependencies": {
+    "lodash": "^4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "husky": "^2.7.0",
+    "jest": "^24.8.0",
+    "lodash": "^4.17.11",
+    "rollup": "^1.16.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "terser": "^4.0.2"
+  }
+}
