@@ -10,7 +10,7 @@
   "homepage": "https://github.com/sibiraj-s/validator.fn#readme",
   "bugs": "https://github.com/sibiraj-s/validator.fn/issues",
   "engines": {
-    "node": "^8"
+    "node": ">=8"
   },
   "keywords": [
     "forms",
