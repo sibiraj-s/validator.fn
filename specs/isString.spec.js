@@ -1,5 +1,10 @@
 const validator = require('../dist/validator.fn');
 
+test('it should validate without errors when no options provided', () => {
+  const errorMessage = validator('validator.fn');
+  expect(errorMessage).toBe('');
+});
+
 test('it should validate string correctly', () => {
   const validations = ['isString'];
   const errorMessage = validator('validator.fn', validations);

@@ -1,7 +1,13 @@
 import _ from 'lodash';
 
-const MIN_LENGTH_REQUIRED = 'MIN_LENGTH_REQUIRED';
+import ERROR_MESSAGES from './constants/errorMessages';
 
-const maxLength = (value, _minLength) => (_.toString(value).length < _minLength ? MIN_LENGTH_REQUIRED : '');
+const minLength = (value, _minLength) => {
+  if (_.toString(value).length < _minLength) {
+    return ERROR_MESSAGES.MIN_LENGTH_REQUIRED;
+  }
 
-export default maxLength;
+  return '';
+};
+
+export default minLength;

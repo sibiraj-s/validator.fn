@@ -1,17 +1,16 @@
 import _ from 'lodash';
 
-const INVALID_INPUT = 'INVALID_INPUT';
-const INVALID_LENGTH = 'INVALID_LENGTH';
+import ERROR_MESSAGES from './constants/errorMessages';
 
 const hasLength = (value, _length) => {
   const length = _.toNumber(_length);
 
   if (_.isNaN((length))) {
     console.error('Length must be a number. For Example: \'hasLength:10\'');
-    return INVALID_INPUT;
+    return ERROR_MESSAGES.INVALID_INPUT;
   }
 
-  return _.toString(value).length === _.toNumber(length) ? '' : INVALID_LENGTH;
+  return _.toString(value).length === _.toNumber(length) ? '' : ERROR_MESSAGES.INVALID_LENGTH;
 };
 
 export default hasLength;

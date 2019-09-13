@@ -17,14 +17,14 @@ const validate = (inputVal, _validations) => {
     const enabled = canValidate(value);
     const option = value;
     const validatorMethod = key;
+    const validatorFn = validators[validatorMethod];
 
-    if (validators[validatorMethod]) {
-      error = enabled ? validators[validatorMethod](inputVal, option) : '';
+    error = enabled ? validatorFn(inputVal, option) : '';
 
-      if (error) {
-        return false;
-      }
+    if (error) {
+      return false;
     }
+
     return true;
   });
 

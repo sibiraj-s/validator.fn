@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-const NOT_A_NUMBER = 'NOT_A_NUMBER';
+import ERROR_MESSAGES from './constants/errorMessages';
 
-const isNumber = (value) => (_.isNumber(value) ? '' : NOT_A_NUMBER);
+const isNumber = (value) => (_.isNumber(value) ? '' : ERROR_MESSAGES.NOT_A_NUMBER);
 
 export default isNumber;
