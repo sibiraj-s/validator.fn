@@ -13,6 +13,15 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v1.0.1 (2019-09-13)
+
+#### Enhancements
+
+- update node version requirement ([20c3617](https://github.com/sibiraj-s/validator.fn/commit/20c3617))
+- general code enhancements ([68334eb](https://github.com/sibiraj-s/validator.fn/commit/68334eb))
+- bump devDependencies ([943a28a](https://github.com/sibiraj-s/validator.fn/commit/943a28a))
+- report coverage for jest tests ([d8c2ed4](https://github.com/sibiraj-s/validator.fn/commit/d8c2ed4))
+
 ## v1.0.0 (2019-07-01)
 
 #### Features
