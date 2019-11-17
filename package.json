@@ -24,8 +24,7 @@
     "postbuild": "sh ./scripts/postbuild.sh",
     "prebuild": "sh ./scripts/prebuild.sh",
     "lint": "eslint . --ignore-path .gitignore",
-    "pretest": "npm run build",
-    "test": "jest --verbose --coverage",
+    "test": "jest",
     "prerelease": "npm run build",
     "prepublishOnly": "node ./scripts/prepublish.js",
     "release": "sh ./scripts/release.sh"

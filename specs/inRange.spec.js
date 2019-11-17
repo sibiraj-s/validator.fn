@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 test('it should validate a number correctly to be in given range', () => {
   const validations = ['inRange:1-10'];

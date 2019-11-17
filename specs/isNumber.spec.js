@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 test('it should validate number correctly', () => {
   const validations = ['isNumber'];

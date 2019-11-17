@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 const INPUT_STRING = 'validator.fn';
 

@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 test('it should validate without errors when no options provided', () => {
   const errorMessage = validator('validator.fn');

@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 const VALID_EMAIL = 'johndoe@anonymous.com';
 const INVALID_EMAIL = 'johndoe@anonymous@.com';

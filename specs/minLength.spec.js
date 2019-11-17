@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 test('it should validate minimum length of a string correctly', () => {
   const validations = ['minLength:12'];

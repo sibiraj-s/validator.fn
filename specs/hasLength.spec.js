@@ -1,4 +1,4 @@
-const validator = require('../dist/validator.fn');
+const validator = require('../index').default;
 
 test('it should validate a string to have exact length', () => {
   const validations = ['hasLength:12'];
