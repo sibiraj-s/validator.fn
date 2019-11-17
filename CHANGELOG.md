@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 > **Tags**
+>
 > - Features
 > - Bug Fixes
 > - Performance Improvements
@@ -12,6 +13,13 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 > - Unreleased
+
+## v1.0.2 (2019-11-18)
+
+#### Internal
+
+- migrate from travis-ci to github actions ([36641e4](https://github.com/sibiraj-s/validator.fn/commit/36641e4))
+- bump devDependencies ([ba7519c](https://github.com/sibiraj-s/validator.fn/commit/ba7519c))
 
 ## v1.0.1 (2019-09-13)
 
