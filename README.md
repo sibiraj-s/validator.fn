@@ -1,4 +1,4 @@
-# validator.fn [![Build Status](https://travis-ci.com/sibiraj-s/validator.fn.svg?branch=master)](https://travis-ci.com/sibiraj-s/validator.fn)
+# validator.fn [![Tests](https://github.com/sibiraj-s/validator.fn/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/validator.fn/actions)
 
 > A simple function to aid form validations 
 
