@@ -14,6 +14,17 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v2.0.0 (2019-12-09)
+
+#### Enhancements
+
+- generate seperate `cjs`, `esm` and `umd` builds ([6eea78f](https://github.com/sibiraj-s/validator.fn/commit/6eea78f))
+
+#### Internal
+
+- bump devDependencies ([9d14315](https://github.com/sibiraj-s/validator.fn/commit/9d14315))
+- prefer gulp task runner ([6eea78f](https://github.com/sibiraj-s/validator.fn/commit/6eea78f))
+
 ## v1.0.2 (2019-11-18)
 
 #### Internal
