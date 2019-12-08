@@ -19,13 +19,13 @@ or use cdn
 **Minified:**
 
 ```bash
-//cdn.jsdelivr.net/npm/validator.fn@latest/validator.fn.min.js
+//cdn.jsdelivr.net/npm/validator.fn@latest/validator.fn.umd.min.js
 ```
 
 **Pretty Printed:**
 
 ```bash
-//cdn.jsdelivr.net/npm/validator.fn@latest/validator.fn.js
+//cdn.jsdelivr.net/npm/validator.fn@latest/validator.fn.umd.js
 ```
 
 **Note:** [Lodash v4.x](https://lodash.com/) is a peerDependency
