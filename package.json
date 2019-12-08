@@ -18,11 +18,7 @@
     "javascript"
   ],
   "scripts": {
-    "rollup": "rollup -c",
-    "terser": "terser dist/validator.fn.js -o dist/validator.fn.min.js --source-map  --comments \"//*!/\"",
-    "build": "npm run rollup && npm run terser",
-    "postbuild": "sh ./scripts/postbuild.sh",
-    "prebuild": "sh ./scripts/prebuild.sh",
+    "build": "gulp build",
     "lint": "eslint . --ignore-path .gitignore",
     "test": "jest",
     "prerelease": "npm run build",
@@ -38,12 +34,16 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "gulp": "^4.0.2",
+    "gulp-plugin-terser": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.5",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "lodash": "^4.17.15",
     "rollup": "^1.27.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "terser": "^4.4.0"
+    "terser": "^4.4.0",
+    "through2": "^3.0.1"
   }
 }
