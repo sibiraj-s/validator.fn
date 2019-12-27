@@ -5,7 +5,6 @@ const gulp = require('gulp');
 const rollup = require('rollup');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
-const through2 = require('through2');
 const terser = require('gulp-plugin-terser');
 const sourcemap = require('gulp-sourcemaps');
 
@@ -64,8 +63,8 @@ async function compile() {
   });
 }
 
-async function minify() {
-  gulp
+function minify() {
+  return gulp
     .src('dist/*.js')
     .pipe(sourcemap.init())
     .pipe(terser())
@@ -73,37 +72,34 @@ async function minify() {
     .pipe(gulp.dest('dist/'));
 }
 
-function updatePackageJSON() {
-  const transform = through2.obj((file, _, callback) => {
-    const modifiedFile = file.clone();
-    const pkgJson = JSON.parse(file.contents.toString());
+async function updatePackageJSON() {
+  const targetPkgJsonPath = path.resolve(outDir, 'package.json');
+  const jsonStr = await fs.promises.readFile(targetPkgJsonPath, 'utf-8');
 
-    pkgJson.main = 'validator.fn.js';
-    pkgJson.module = 'validator.fn.esm.js';
-    pkgJson.browser = 'validator.fn.umd.min.js';
+  const pkgJson = JSON.parse(jsonStr);
 
-    delete pkgJson.scripts;
-    delete pkgJson.devDependencies;
-    delete pkgJson.private;
-    delete pkgJson.engines;
+  pkgJson.main = 'validator.fn.js';
+  pkgJson.module = 'validator.fn.esm.js';
+  pkgJson.browser = 'validator.fn.umd.min.js';
 
-    modifiedFile.contents = Buffer.from(JSON.stringify((pkgJson), null, 2));
-    callback(null, modifiedFile);
-  });
+  delete pkgJson.scripts;
+  delete pkgJson.devDependencies;
+  delete pkgJson.private;
+  delete pkgJson.engines;
 
-  return transform;
+  await fs.promises.writeFile(targetPkgJsonPath, JSON.stringify((pkgJson), null, 2));
 }
 
-async function copyFiles() {
-  gulp.src('README.md').pipe(gulp.dest(outDir));
-  gulp.src('CHANGELOG.md').pipe(gulp.dest(outDir));
-  gulp.src('LICENSE').pipe(gulp.dest(outDir));
-  gulp.src('package.json')
-    .pipe(updatePackageJSON())
-    .pipe(gulp.dest(outDir));
+function copyFiles() {
+  return gulp.src([
+    'README.md',
+    'CHANGELOG.md',
+    'LICENSE',
+    'package.json',
+  ]).pipe(gulp.dest(outDir));
 }
 
-const build = gulp.series(cleanOutDir, compile, minify, copyFiles);
+const build = gulp.series(cleanOutDir, compile, minify, copyFiles, updatePackageJSON);
 
 exports.build = build;
 exports.default = build;
