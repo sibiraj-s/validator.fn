@@ -38,7 +38,7 @@
     "gulp-plugin-terser": "^1.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "husky": "^3.1.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "lint-staged": "^9.5.0",
     "lodash": "^4.17.15",
     "rollup": "^1.27.9",
