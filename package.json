@@ -29,21 +29,21 @@
     "lodash": "^4"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
     "gulp": "^4.0.2",
-    "gulp-plugin-terser": "^1.0.1",
+    "gulp-plugin-terser": "^1.1.1",
     "gulp-sourcemaps": "^2.6.5",
-    "husky": "^3.1.0",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.0.8",
     "lodash": "^4.17.15",
-    "rollup": "^1.27.9",
-    "rollup-plugin-babel": "^4.3.3",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "terser": "^4.4.2"
+    "terser": "^4.6.7"
   }
 }
