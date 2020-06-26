@@ -3,8 +3,8 @@ const fs = require('fs');
 
 const gulp = require('gulp');
 const rollup = require('rollup');
-const resolve = require('rollup-plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+const { babel } = require('@rollup/plugin-babel');
 const terser = require('gulp-plugin-terser');
 const sourcemap = require('gulp-sourcemaps');
 
@@ -37,8 +37,8 @@ async function compile() {
   const bundle = await rollup.rollup({
     input: './index.js',
     plugins: [
-      resolve(),
-      babel(),
+      nodeResolve(),
+      babel({ babelHelpers: 'bundled' }),
     ],
     external: ['lodash'],
   });
