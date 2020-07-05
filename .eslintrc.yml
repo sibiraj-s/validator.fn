@@ -1,13 +1,11 @@
-extends: airbnb-base
+extends: 
+  - airbnb-base
+  - pegasus
 
 rules:
   no-underscore-dangle: off
   no-console: off
   import/no-extraneous-dependencies: off
-  max-len:
-    - error
-    - code: 120
-      ignoreRegExpLiterals: true
 
 env:
   jest: true
