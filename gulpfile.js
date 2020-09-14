@@ -32,6 +32,7 @@ async function compile() {
       lodash: '_',
     },
     banner,
+    exports: 'default',
   };
 
   const bundle = await rollup.rollup({
