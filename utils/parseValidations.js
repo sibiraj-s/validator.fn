@@ -8,8 +8,7 @@ const parseValidations = (userValidations = []) => {
   const validations = {};
 
   userValidations.forEach((item) => {
-    const type = item.split(':')[0];
-    const value = item.split(':')[1] || true;
+    const [type, value = true] = item.split(':');
     validations[type] = value;
   });
 

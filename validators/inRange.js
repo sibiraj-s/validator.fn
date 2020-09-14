@@ -3,8 +3,7 @@ import _ from 'lodash';
 import ERROR_MESSAGES from './constants/errorMessages';
 
 const isInRange = (value, range) => {
-  const _start = range.split('-')[0];
-  const _end = range.split('-')[1];
+  const [_start, _end] = range.split('-');
 
   const start = _.parseInt(_start);
   const end = _.parseInt(_end);

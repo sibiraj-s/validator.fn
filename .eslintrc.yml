@@ -1,12 +1,13 @@
 extends: 
-  - airbnb-base
   - pegasus
+  - pegasus/node
 
 rules:
-  no-underscore-dangle: off
   no-console: off
-  import/no-extraneous-dependencies: off
+  no-extra-parens:
+    - error
+    - all
+    - enforceForArrowConditionals: false
 
 env:
   jest: true
-  browser: true

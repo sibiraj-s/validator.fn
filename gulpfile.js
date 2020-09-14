@@ -21,11 +21,11 @@ const banner = `/*!
  */
 `;
 
-async function cleanOutDir() {
+const cleanOutDir = async function () {
   await fs.promises.rmdir(outDir, { recursive: true });
-}
+};
 
-async function compile() {
+const compile = async function () {
   const defaultOutputOptions = {
     sourcemap: true,
     globals: {
@@ -62,18 +62,18 @@ async function compile() {
     format: 'umd',
     ...defaultOutputOptions,
   });
-}
+};
 
-function minify() {
+const minify = function () {
   return gulp
     .src('dist/*.js')
     .pipe(sourcemap.init())
     .pipe(terser())
     .pipe(sourcemap.write('.'))
     .pipe(gulp.dest('dist/'));
-}
+};
 
-async function updatePackageJSON() {
+const updatePackageJSON = async function () {
   const targetPkgJsonPath = path.resolve(outDir, 'package.json');
   const jsonStr = await fs.promises.readFile(targetPkgJsonPath, 'utf-8');
 
@@ -88,17 +88,17 @@ async function updatePackageJSON() {
   delete pkgJson.private;
   delete pkgJson.engines;
 
-  await fs.promises.writeFile(targetPkgJsonPath, JSON.stringify((pkgJson), null, 2));
-}
+  await fs.promises.writeFile(targetPkgJsonPath, JSON.stringify(pkgJson, null, 2));
+};
 
-function copyFiles() {
+const copyFiles = function () {
   return gulp.src([
     'README.md',
     'CHANGELOG.md',
     'LICENSE',
     'package.json',
   ]).pipe(gulp.dest(outDir));
-}
+};
 
 const build = gulp.series(cleanOutDir, compile, minify, copyFiles, updatePackageJSON);
 

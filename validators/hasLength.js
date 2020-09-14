@@ -5,7 +5,7 @@ import ERROR_MESSAGES from './constants/errorMessages';
 const hasLength = (value, _length) => {
   const length = _.toNumber(_length);
 
-  if (_.isNaN((length))) {
+  if (_.isNaN(length)) {
     console.error('Length must be a number. For Example: \'hasLength:10\'');
     return ERROR_MESSAGES.INVALID_INPUT;
   }
