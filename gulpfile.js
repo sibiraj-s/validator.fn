@@ -81,7 +81,6 @@ const updatePackageJSON = async function () {
 
   pkgJson.main = 'validator.fn.js';
   pkgJson.module = 'validator.fn.esm.js';
-  pkgJson.browser = 'validator.fn.umd.min.js';
 
   delete pkgJson.scripts;
   delete pkgJson.devDependencies;
