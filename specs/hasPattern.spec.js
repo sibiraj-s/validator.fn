@@ -3,7 +3,7 @@ const validator = require('../index').default;
 test('it should validate a string with given pattern', () => {
   const validations = ['hasPattern:[A-Za-z]{3}'];
   const errorMessage = validator('USA', validations);
-  expect(errorMessage).toBe('');
+  expect(errorMessage).toBeNull();
 });
 
 test('it should return \'NO_PATTERN_MATCH\' if string length doesn`t match given pattern', () => {
@@ -15,5 +15,5 @@ test('it should return \'NO_PATTERN_MATCH\' if string length doesn`t match given
 test('it should not validate when marked false', () => {
   const validations = ['hasPattern:false'];
   const errorMessage = validator('validator.fn', validations);
-  expect(errorMessage).toBe('');
+  expect(errorMessage).toBeNull();
 });

@@ -1,24 +1,22 @@
-import _ from 'lodash';
-
 import ERROR_MESSAGES from './constants/errorMessages';
 
 const isInRange = (value, range) => {
   const [_start, _end] = range.split('-');
 
-  const start = _.parseInt(_start);
-  const end = _.parseInt(_end);
+  const min = parseInt(_start, 10);
+  const max = parseInt(_end, 10);
 
-  if (_.isNaN(start) || _.isNaN(end)) {
-    console.error('Start and End must be a number. For Example: \'inRange:1-10\'');
+  if (isNaN(min) || isNaN(max)) {
+    console.error('Min and Max must be a number. For Example: \'inRange:1-10\'');
     return ERROR_MESSAGES.INVALID_INPUT;
   }
 
-  if (!_.isNumber(value)) {
+  if (typeof value !== 'number') {
     console.error('Input must be a number');
     return ERROR_MESSAGES.INVALID_INPUT;
   }
 
-  return _.inRange(value, start, end) ? '' : ERROR_MESSAGES.NOT_IN_RANGE;
+  return value >= min && value <= max ? '' : ERROR_MESSAGES.NOT_IN_RANGE;
 };
 
 export default isInRange;

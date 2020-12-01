@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 import parseValidations from './utils/parseValidations';
 import canValidate from './utils/canValidate';
 import validators from './validators';
@@ -9,26 +7,26 @@ const defaultValidations = {};
 const validate = (inputVal, _validations) => {
   const userValidations = parseValidations(_validations);
 
-  const validations = _.defaults(userValidations, defaultValidations);
+  const validations = Object.assign(userValidations, defaultValidations);
 
-  let error = '';
+  for (const key in validations) {
+    if ({}.hasOwnProperty.call(validations, key)) {
+      const value = validations[key];
 
-  _.forIn(validations, (value, key) => {
-    const enabled = canValidate(value);
-    const option = value;
-    const validatorMethod = key;
-    const validatorFn = validators[validatorMethod];
+      const enabled = canValidate(value);
+      const option = value;
+      const validatorMethod = key;
+      const validatorFn = validators[validatorMethod];
 
-    error = enabled ? validatorFn(inputVal, option) : '';
+      const error = enabled ? validatorFn(inputVal, option) : '';
 
-    if (error) {
-      return false;
+      if (error) {
+        return error;
+      }
     }
+  }
 
-    return true;
-  });
-
-  return error;
+  return null;
 };
 
 export default validate;

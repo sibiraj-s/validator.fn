@@ -28,8 +28,6 @@ or use cdn
 //cdn.jsdelivr.net/npm/validator.fn@latest/validator.fn.umd.js
 ```
 
-**Note:** [Lodash v4.x](https://lodash.com/) is a peerDependency
-
 ### Usage
 
 This library is compiled to [UMD][umd] format, you should be able to use it in both `Node.js` and `browser`.
@@ -37,9 +35,10 @@ This library is compiled to [UMD][umd] format, you should be able to use it in b
 ```js
 import validate from 'validator.fn';
 
-const err = validate('hey', ['isString', 'minLength:3', 'hasLength:3']) // is valid and returns ''
+const err = validate('hey', ['isString', 'minLength:3', 'hasLength:3']) // is valid
 
 const err = validate(3, ['isNumber', 'inRange:1-10'])
+console.log(err) // -> null
 ```
 
 #### Supported Validations

@@ -3,7 +3,7 @@ const validator = require('../index').default;
 test('it should validate maxlength of a string correctly', () => {
   const validations = ['maxLength:20'];
   const errorMessage = validator('validator.fn', validations);
-  expect(errorMessage).toBe('');
+  expect(errorMessage).toBeNull();
 });
 
 test('it should return \'MAX_LENGTH_EXCEEDED\' if string length exceeds given length', () => {
@@ -15,5 +15,5 @@ test('it should return \'MAX_LENGTH_EXCEEDED\' if string length exceeds given le
 test('it should not validate when marked false', () => {
   const validations = ['maxLength:false'];
   const errorMessage = validator('validator.fn', validations);
-  expect(errorMessage).toBe('');
+  expect(errorMessage).toBeNull();
 });
