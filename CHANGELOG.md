@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v3.0.0 (2020-12-01)
+
+#### Features
+
+- drop lodash dependency ([cc6de60](https://github.com/sibiraj-s/validator.fn/commit/cc6de60))
+
 ## v2.0.0 (2019-12-09)
 
 #### Enhancements
