@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v3.0.1 (2020-12-01)
+
+#### Enhancements
+
+- remove browser field from package.json ([6f239ee](https://github.com/sibiraj-s/validator.fn/commit/6f239ee))
+
 ## v3.0.0 (2020-12-01)
 
 #### Features
