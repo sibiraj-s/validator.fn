@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v3.0.2 (2020-12-01)
+
+#### Enhancements
+
+- mark package as sideEffects free ([2fb8741](https://github.com/sibiraj-s/validator.fn/commit/2fb8741))
+
 ## v3.0.1 (2020-12-01)
 
 #### Enhancements
