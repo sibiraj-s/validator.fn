@@ -17,10 +17,7 @@
   "scripts": {
     "build": "gulp build",
     "lint": "eslint . --ignore-path .gitignore",
-    "test": "jest",
-    "prerelease": "npm run build",
-    "prepublishOnly": "node ./scripts/prepublish.js",
-    "release": "sh ./scripts/release.sh"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
