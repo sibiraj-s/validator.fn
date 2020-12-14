@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v3.0.3 (2020-12-14)
+
+#### Internal
+
+- update LICENSE ([0b69d1e](https://github.com/sibiraj-s/validator.fn/commit/0b69d1e))
+
 ## v3.0.2 (2020-12-01)
 
 #### Enhancements
