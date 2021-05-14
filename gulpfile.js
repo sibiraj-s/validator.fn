@@ -1,5 +1,5 @@
-const path = require('path');
-const fs = require('fs');
+const path = require('node:path');
+const fs = require('node:fs/promises');
 
 const gulp = require('gulp');
 const rollup = require('rollup');
@@ -22,7 +22,7 @@ const banner = `/*!
 `;
 
 const cleanOutDir = async function () {
-  await fs.promises.rmdir(outDir, { recursive: true });
+  await fs.rm(outDir, { recursive: true, force: true });
 };
 
 const compile = async function () {
@@ -75,7 +75,7 @@ const minify = function () {
 
 const updatePackageJSON = async function () {
   const targetPkgJsonPath = path.resolve(outDir, 'package.json');
-  const jsonStr = await fs.promises.readFile(targetPkgJsonPath, 'utf-8');
+  const jsonStr = await fs.readFile(targetPkgJsonPath, 'utf-8');
 
   const pkgJson = JSON.parse(jsonStr);
 
@@ -87,7 +87,7 @@ const updatePackageJSON = async function () {
   delete pkgJson.private;
   delete pkgJson.engines;
 
-  await fs.promises.writeFile(targetPkgJsonPath, JSON.stringify(pkgJson, null, 2));
+  await fs.writeFile(targetPkgJsonPath, JSON.stringify(pkgJson, null, 2));
 };
 
 const copyFiles = function () {
