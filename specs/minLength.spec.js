@@ -1,3 +1,5 @@
+const { test, expect } = require('@jest/globals');
+
 const validator = require('../index').default;
 
 test('it should validate minimum length of a string correctly', () => {

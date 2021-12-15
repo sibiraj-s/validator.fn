@@ -1,4 +1,4 @@
-extends: 
+extends:
   - pegasus
   - pegasus/node
 
@@ -8,6 +8,3 @@ rules:
     - error
     - all
     - enforceForArrowConditionals: false
-
-env:
-  jest: true

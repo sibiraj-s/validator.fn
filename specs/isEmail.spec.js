@@ -1,3 +1,5 @@
+const { test, expect } = require('@jest/globals');
+
 const validator = require('../index').default;
 
 const VALID_EMAIL = 'johndoe@anonymous.com';

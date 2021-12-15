@@ -1,3 +1,5 @@
+const { test, expect } = require('@jest/globals');
+
 const validator = require('../index').default;
 
 const INPUT_STRING = 'validator.fn';
