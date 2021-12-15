@@ -62,6 +62,8 @@ const compile = async function () {
     format: 'umd',
     ...defaultOutputOptions,
   });
+
+  await bundle.close();
 };
 
 const minify = function () {
