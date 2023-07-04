@@ -44,13 +44,13 @@ const compile = async function () {
   });
 
   await bundle.write({
-    file: 'dist/validator.fn.js',
+    file: 'dist/validator.fn.cjs',
     format: 'cjs',
     ...defaultOutputOptions,
   });
 
   await bundle.write({
-    file: 'dist/validator.fn.esm.js',
+    file: 'dist/validator.fn.mjs',
     format: 'esm',
     ...defaultOutputOptions,
   });
@@ -78,8 +78,14 @@ const updatePackageJSON = async function () {
 
   const pkgJson = JSON.parse(jsonStr);
 
-  pkgJson.main = 'validator.fn.js';
-  pkgJson.module = 'validator.fn.esm.js';
+  pkgJson.main = 'validator.fn.cjs';
+  pkgJson.module = 'validator.fn.mjs';
+  pkgJson.exports = {
+    '.': {
+      require: './validator.fn.cjs',
+      default: './validator.fn.mjs',
+    },
+  };
 
   delete pkgJson.scripts;
   delete pkgJson.devDependencies;
