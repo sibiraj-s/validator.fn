@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v3.0.4 (2023-07-04)
+
+#### Internal
+
+- add npm package provenance ([382c323](https://github.com/sibiraj-s/validator.fn/commit/382c323))
+- fix package exports ([04f4496](https://github.com/sibiraj-s/validator.fn/commit/04f4496))
+
 ## v3.0.3 (2020-12-14)
 
 #### Internal
