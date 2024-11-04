@@ -1,6 +1,6 @@
-const { test, expect } = require('@jest/globals');
+import { test, expect } from 'vitest';
 
-const validator = require('../index').default;
+import validator from '../index'
 
 test('it should validate a number correctly to be in given range', () => {
   const validations = ['inRange:1-10'];

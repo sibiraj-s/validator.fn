@@ -1,6 +1,6 @@
-const { test, expect } = require('@jest/globals');
+import { test, expect } from 'vitest';
 
-const validator = require('../index').default;
+import validator from '../index';
 
 test('it should validate without errors when no options provided', () => {
   const errorMessage = validator('validator.fn');

@@ -1,6 +1,6 @@
-const { test, expect } = require('@jest/globals');
+import { test, expect } from 'vitest'
 
-const validator = require('../index').default;
+import validator from '../index'
 
 test('it should validate a string with given pattern', () => {
   const validations = ['hasPattern:[A-Za-z]{3}'];
