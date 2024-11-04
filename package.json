@@ -7,7 +7,7 @@
   "author": "sibiraj-s",
   "private": true,
   "type": "module",
-  "repository": "https://github.com/sibiraj-s/validator.fn.git",
+  "repository": "github:sibiraj-s/validator.fn",
   "homepage": "https://github.com/sibiraj-s/validator.fn#readme",
   "bugs": "https://github.com/sibiraj-s/validator.fn/issues",
   "keywords": [
