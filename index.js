@@ -10,7 +10,7 @@ const validate = (inputVal, _validations) => {
   const validations = Object.assign(userValidations, defaultValidations);
 
   for (const key in validations) {
-    if ({}.hasOwnProperty.call(validations, key)) {
+    if (Object.hasOwn(validations, key)) {
       const value = validations[key];
 
       const enabled = canValidate(value);
