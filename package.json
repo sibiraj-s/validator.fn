@@ -6,6 +6,7 @@
   "main": "index.js",
   "author": "sibiraj-s",
   "private": true,
+  "type": "module",
   "repository": "https://github.com/sibiraj-s/validator.fn.git",
   "homepage": "https://github.com/sibiraj-s/validator.fn#readme",
   "bugs": "https://github.com/sibiraj-s/validator.fn/issues",

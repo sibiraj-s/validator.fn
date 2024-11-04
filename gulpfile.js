@@ -1,15 +1,20 @@
-const path = require('node:path');
-const fs = require('node:fs/promises');
+import path from 'node:path';
+import fs from 'node:fs/promises';
 
-const gulp = require('gulp');
-const rollup = require('rollup');
-const { nodeResolve } = require('@rollup/plugin-node-resolve');
-const { babel } = require('@rollup/plugin-babel');
-const terser = require('gulp-plugin-terser');
+import gulp from 'gulp';
+import { rollup } from 'rollup';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { babel } from '@rollup/plugin-babel';
+import terser from 'gulp-plugin-terser';
 
-const pkg = require('./package.json');
+const readPkg = async function () {
+  const jsonStr = await fs.readFile('./package.json', 'utf-8');
+  return JSON.parse(jsonStr);
+};
 
-const outDir = path.resolve(__dirname, 'dist');
+const pkg = await readPkg();
+
+const outDir = path.resolve(import.meta.dirname, 'dist');
 
 const banner = `/*!
  * @module ${pkg.name}
@@ -34,7 +39,7 @@ const compile = async function () {
     exports: 'default',
   };
 
-  const bundle = await rollup.rollup({
+  const bundle = await rollup({
     input: './index.js',
     plugins: [
       nodeResolve(),
@@ -104,7 +109,6 @@ const copyFiles = function () {
   ]).pipe(gulp.dest(outDir));
 };
 
-const build = gulp.series(cleanOutDir, compile, minify, copyFiles, updatePackageJSON);
+export const build = gulp.series(cleanOutDir, compile, minify, copyFiles, updatePackageJSON);
 
-exports.build = build;
-exports.default = build;
+export default build;
