@@ -7,16 +7,21 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { babel } from '@rollup/plugin-babel';
 import terser from 'gulp-plugin-terser';
 
-const readPkg = async function () {
-  const jsonStr = await fs.readFile('./package.json', 'utf-8');
-  return JSON.parse(jsonStr);
-};
-
-const pkg = await readPkg();
-
 const outDir = path.resolve(import.meta.dirname, 'dist');
 
-const banner = `/*!
+const cleanOutDir = async function () {
+  await fs.rm(outDir, { recursive: true, force: true });
+};
+
+const compile = async function () {
+  const readPkg = async function () {
+    const jsonStr = await fs.readFile('./package.json', 'utf-8');
+    return JSON.parse(jsonStr);
+  };
+
+  const pkg = await readPkg();
+
+  const banner = `/*!
  * @module ${pkg.name}
  * @description ${pkg.description}
  * @version ${pkg.version}
@@ -25,11 +30,6 @@ const banner = `/*!
  */
 `;
 
-const cleanOutDir = async function () {
-  await fs.rm(outDir, { recursive: true, force: true });
-};
-
-const compile = async function () {
   const defaultOutputOptions = {
     sourcemap: true,
     globals: {
